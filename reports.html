@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hertz - Reports</title>
+  <style>
+    :root { --hertz-yellow: #ffcc00; --hertz-black: #000000; --bg-gray: #f8f9fa; }
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-gray); }
+    header { background: var(--hertz-black); color: white; padding: 0 40px; display: flex; align-items: center; height: 60px; }
+    .logo { font-size: 24px; font-weight: 900; font-style: italic; margin-right: 40px; }
+    nav a { color: #aaa; text-decoration: none; margin-right: 25px; font-size: 14px; font-weight: 600; padding-bottom: 5px; }
+    nav a.active { color: var(--hertz-yellow); border-bottom: 2px solid var(--hertz-yellow); }
+    .container { padding: 40px; max-width: 1200px; margin: auto; }
+    .report-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .report-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .chart-placeholder { height: 200px; width: 100%; display: flex; align-items: flex-end; gap: 10px; padding-top: 20px; }
+    .bar { background: var(--hertz-yellow); width: 100%; border-radius: 4px 4px 0 0; position: relative; }
+    .bar::after { content: attr(data-label); position: absolute; bottom: -25px; left: 0; width: 100%; text-align: center; font-size: 10px; color: #666; }
+    .legend { margin-top: 40px; font-size: 12px; color: #666; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">Hertz</div>
+  <nav>
+    <a href="./index.html">Home</a>
+    <a href="./invoices.html">Invoices</a>
+    <a href="./disputes.html">Disputes</a>
+    <a href="./reports.html" class="active">Reports</a>
+  </nav>
+</header>
+<div class="container">
+  <h1>Financial Reports</h1>
+  <div class="report-grid">
+    <div class="report-card">
+      <h3>Monthly Spend Analysis</h3>
+      <div class="chart-placeholder">
+        <div class="bar" style="height: 40%;" data-label="Jan"></div>
+        <div class="bar" style="height: 65%;" data-label="Feb"></div>
+        <div class="bar" style="height: 90%;" data-label="Mar"></div>
+        <div class="bar" style="height: 55%;" data-label="Apr"></div>
+      </div>
+      <div class="legend">Hertz Spend in Millions (USD)</div>
+    </div>
+    <div class="report-card">
+      <h3>Vendor Compliance (Holds)</h3>
+      <div style="font-size: 48px; font-weight: bold; color: #e74c3c; margin-top: 20px;">14.2%</div>
+      <p style="color: #666;">Invoices currently on hold due to missing documentation. Action required from Field Teams.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
