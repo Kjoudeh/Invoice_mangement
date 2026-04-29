@@ -2,26 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hertz - Disputes</title>
   <style>
-    :root { --hertz-yellow: #ffcc00; --hertz-black: #000000; --bg-gray: #f8f9fa; --border-color: #dddddd; }
+    :root { 
+      --hertz-yellow: #ffcc00; 
+      --hertz-black: #000000; 
+      --bg-gray: #f8f9fa; 
+      --border-color: #dddddd; 
+      --hertz-red: #d9534f;
+      --hertz-green: #2ecc71;
+    }
     body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-gray); }
+    
+    /* Navigation */
     header { background: var(--hertz-black); color: white; padding: 0 40px; display: flex; align-items: center; height: 60px; }
     .logo { font-size: 24px; font-weight: 900; font-style: italic; margin-right: 40px; }
     nav a { color: #aaa; text-decoration: none; margin-right: 25px; font-size: 14px; font-weight: 600; padding-bottom: 5px; }
     nav a.active { color: var(--hertz-yellow); border-bottom: 2px solid var(--hertz-yellow); }
+    
     .container { padding: 40px; max-width: 1300px; margin: auto; }
-    .card { background: white; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; }
+    .card { background: white; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    
     table { width: 100%; border-collapse: collapse; }
-    th { text-align: left; background: #fafafa; padding: 15px 20px; font-size: 12px; color: #666; }
-    td { padding: 15px 20px; border-bottom: 1px solid #eee; font-size: 14px; }
+    th { text-align: left; background: #fafafa; padding: 15px 20px; font-size: 12px; color: #666; border-bottom: 2px solid #eee; }
+    td { padding: 15px 20px; border-bottom: 1px solid #eee; font-size: 14px; vertical-align: middle; }
+    
+    /* Badges */
     .dispute-by { font-weight: bold; padding: 3px 8px; border-radius: 4px; font-size: 11px; }
     .vendor-flag { background: #e3f2fd; color: #0d47a1; }
     .hertz-flag { background: #fff8e1; color: #ff8f00; }
+    
+    /* Action Buttons */
+    .btn-group { display: flex; gap: 8px; }
+    .btn { 
+      border: none; 
+      padding: 6px 12px; 
+      border-radius: 4px; 
+      font-weight: bold; 
+      cursor: pointer; 
+      font-size: 12px; 
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.8; }
+    .btn-approve { background: var(--hertz-green); color: white; }
+    .btn-deny { background: var(--hertz-red); color: white; }
   </style>
 </head>
 <body>
+
 <header>
   <div class="logo">Hertz</div>
   <nav>
@@ -31,17 +59,58 @@
     <a href="./reports.html">Reports</a>
   </nav>
 </header>
+
 <div class="container">
   <h1>Dispute Resolution Center</h1>
+  <p style="color: #666; margin-bottom: 30px;">Manage disagreement logs and vendor compliance issues.</p>
+
   <div class="card">
     <table>
-      <thead><tr><th>Invoice #</th><th>Vendor</th><th>Disputed By</th><th>Amount</th></tr></thead>
+      <thead>
+        <tr>
+          <th>Invoice #</th>
+          <th>Vendor</th>
+          <th>Disputed By</th>
+          <th>Amount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td><strong>INV-9001</strong></td><td>Ford Motor Co.</td><td><span class="dispute-by vendor-flag">VENDOR</span></td><td>$1,240.00</td></tr>
-        <tr><td><strong>INV-9005</strong></td><td>Penske Truck</td><td><span class="dispute-by hertz-flag">HERTZ</span></td><td>$450.00</td></tr>
+        <tr>
+          <td><strong>INV-9001</strong></td>
+          <td>Ford Motor Co.</td>
+          <td><span class="dispute-by vendor-flag">VENDOR</span></td>
+          <td>$1,240.00</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-approve" onclick="handleAction('Approved', 'INV-9001')">Approve</button>
+              <button class="btn btn-deny" onclick="handleAction('Denied', 'INV-9001')">Deny</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>INV-9005</strong></td>
+          <td>Penske Truck</td>
+          <td><span class="dispute-by hertz-flag">HERTZ</span></td>
+          <td>$450.00</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-approve" onclick="handleAction('Approved', 'INV-9005')">Approve</button>
+              <button class="btn btn-deny" onclick="handleAction('Denied', 'INV-9005')">Deny</button>
+            </div>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+<script>
+  function handleAction(status, id) {
+    alert(status + ' dispute for ' + id);
+    // In a real app, this would update a database.
+  }
+</script>
+
 </body>
 </html>
