@@ -6,39 +6,41 @@
   <title>Hertz - Invoices</title>
   <style>
     :root { --hertz-yellow: #ffcc00; --hertz-black: #000000; --bg-gray: #f4f4f4; --border-color: #dddddd; --text-muted: #777777; }
-    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; background: var(--bg-gray); color: #333; }
-    header { background: var(--hertz-black); color: white; padding: 0 40px; display: flex; align-items: center; height: 65px; }
-    .logo { font-size: 26px; font-weight: 900; font-style: italic; margin-right: 50px; }
-    nav a { color: #888; text-decoration: none; margin-right: 30px; font-size: 14px; font-weight: 600; padding-bottom: 5px; }
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-gray); }
+    header { background: var(--hertz-black); color: white; padding: 0 40px; display: flex; align-items: center; height: 60px; }
+    .logo { font-size: 24px; font-weight: 900; font-style: italic; margin-right: 40px; }
+    nav a { color: #aaa; text-decoration: none; margin-right: 25px; font-size: 14px; font-weight: 500; padding-bottom: 5px; }
     nav a.active { color: var(--hertz-yellow); border-bottom: 2px solid var(--hertz-yellow); }
     .container { padding: 40px; max-width: 1300px; margin: auto; }
-    .invoice-table-card { background: white; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .table-header { padding: 20px 25px; border-bottom: 1px solid var(--border-color); }
+    .card { background: white; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     table { width: 100%; border-collapse: collapse; }
-    th { text-align: left; background: #fdfdfd; padding: 18px 25px; font-size: 12px; color: var(--text-muted); text-transform: uppercase; }
-    td { padding: 18px 25px; border-bottom: 1px solid #f0f0f0; }
-    .owner-tag { display: inline-flex; align-items: center; font-weight: 500; }
-    .owner-tag span { width: 24px; height: 24px; background: var(--hertz-yellow); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; font-size: 10px; color: var(--hertz-black); font-weight: bold; }
+    th { text-align: left; background: #fafafa; padding: 18px 25px; font-size: 12px; color: var(--text-muted); text-transform: uppercase; }
+    td { padding: 18px 25px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+    .owner-tag { display: inline-flex; align-items: center; }
+    .owner-tag span { width: 24px; height: 24px; background: var(--hertz-yellow); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; font-size: 10px; font-weight: bold; color: black; }
   </style>
 </head>
 <body>
 <header>
   <div class="logo">Hertz</div>
   <nav>
-    <a href="./index.html">Dashboard</a>
+    <a href="./index.html">Home</a>
     <a href="./invoices.html" class="active">Invoices</a>
     <a href="./disputes.html">Disputes</a>
-    <a href="#">Admin</a>
+    <a href="./reports.html">Reports</a>
   </nav>
 </header>
 <div class="container">
   <h1>OEM Action Center</h1>
-  <div class="invoice-table-card">
-    <div class="table-header"><h2>Pending OEM Items</h2></div>
+  <div class="card">
     <table>
       <thead><tr><th>Invoice #</th><th>OEM Partner</th><th>Action Item</th><th>Owner</th></tr></thead>
       <tbody>
         <tr><td><strong>OEM-4402</strong></td><td>Ford Fleet</td><td>Upload POD</td><td><div class="owner-tag"><span>SJ</span> Sarah</div></td></tr>
+        <tr><td><strong>OEM-4405</strong></td><td>General Motors</td><td>Verify VIN</td><td><div class="owner-tag"><span>MR</span> Mike</div></td></tr>
+        <tr><td><strong>OEM-4409</strong></td><td>Toyota North America</td><td>Reconcile Tax</td><td><div class="owner-tag"><span>SJ</span> Sarah</div></td></tr>
+        <tr><td><strong>OEM-4412</strong></td><td>Stellantis</td><td>Signature Required</td><td><div class="owner-tag"><span>MR</span> Mike</div></td></tr>
+        <tr><td><strong>OEM-4415</strong></td><td>Nissan Group</td><td>Document Audit</td><td><div class="owner-tag"><span>SJ</span> Sarah</div></td></tr>
       </tbody>
     </table>
   </div>
