@@ -3,200 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hertz - OEM Invoice Management</title>
+  <title>Hertz - Invoices</title>
   <style>
-    :root {
-      --hertz-yellow: #ffcc00;
-      --hertz-black: #000000;
-      --bg-gray: #f4f4f4;
-      --border-color: #dddddd;
-      --text-muted: #777777;
-      --action-red: #d9534f;
-    }
-
-    body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      margin: 0;
-      background: var(--bg-gray);
-      color: #333;
-    }
-
-    header {
-      background: var(--hertz-black);
-      color: white;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      height: 65px;
-    }
-
+    :root { --hertz-yellow: #ffcc00; --hertz-black: #000000; --bg-gray: #f4f4f4; --border-color: #dddddd; --text-muted: #777777; }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; background: var(--bg-gray); color: #333; }
+    header { background: var(--hertz-black); color: white; padding: 0 40px; display: flex; align-items: center; height: 65px; }
     .logo { font-size: 26px; font-weight: 900; font-style: italic; margin-right: 50px; }
-    
-    nav a {
-      color: #888;
-      text-decoration: none;
-      margin-right: 30px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    nav a.active { color: var(--hertz-yellow); border-bottom: 2px solid var(--hertz-yellow); padding-bottom: 5px; }
-
+    nav a { color: #888; text-decoration: none; margin-right: 30px; font-size: 14px; font-weight: 600; padding-bottom: 5px; }
+    nav a.active { color: var(--hertz-yellow); border-bottom: 2px solid var(--hertz-yellow); }
     .container { padding: 40px; max-width: 1300px; margin: auto; }
-
-    .insights-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 25px;
-      margin-bottom: 40px;
-    }
-
-    .insight-card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    .insight-card h3 { margin: 0 0 15px 0; font-size: 14px; color: var(--text-muted); text-transform: uppercase; }
-
-    .trend-container { display: flex; align-items: flex-end; height: 100px; gap: 10px; padding-top: 10px; }
-    .trend-bar { background: var(--hertz-yellow); width: 100%; border-radius: 4px 4px 0 0; position: relative; }
-    .trend-bar:hover { background: var(--hertz-black); }
-    .trend-label { position: absolute; top: -20px; width: 100%; text-align: center; font-size: 10px; font-weight: bold; }
-
-    .progress-track { background: #eee; height: 12px; border-radius: 10px; margin: 20px 0 10px 0; overflow: hidden; }
-    .progress-fill { background: #2ecc71; height: 100%; width: 68%; }
-
-    .invoice-table-card {
-      background: white;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    .table-header {
-      padding: 20px 25px;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
+    .invoice-table-card { background: white; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .table-header { padding: 20px 25px; border-bottom: 1px solid var(--border-color); }
     table { width: 100%; border-collapse: collapse; }
     th { text-align: left; background: #fdfdfd; padding: 18px 25px; font-size: 12px; color: var(--text-muted); text-transform: uppercase; }
-    td { padding: 18px 25px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
-
-    .status-pill {
-      background: #fff4cc;
-      color: #8a6d3b;
-      padding: 4px 10px;
-      border-radius: 15px;
-      font-size: 11px;
-      font-weight: bold;
-    }
-
-    .owner-tag {
-      display: inline-flex;
-      align-items: center;
-      font-weight: 500;
-      color: #555;
-    }
-
-    .owner-tag span {
-      width: 24px;
-      height: 24px;
-      background: var(--hertz-yellow);
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 8px;
-      font-size: 10px;
-      color: var(--hertz-black);
-      font-weight: bold;
-    }
-
-    .action-required {
-      color: var(--action-red);
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-    }
-
-    .action-required::before { content: '⚠️'; margin-right: 6px; }
-
+    td { padding: 18px 25px; border-bottom: 1px solid #f0f0f0; }
+    .owner-tag { display: inline-flex; align-items: center; font-weight: 500; }
+    .owner-tag span { width: 24px; height: 24px; background: var(--hertz-yellow); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; font-size: 10px; color: var(--hertz-black); font-weight: bold; }
   </style>
 </head>
 <body>
-
 <header>
   <div class="logo">Hertz</div>
   <nav>
     <a href="./index.html">Dashboard</a>
     <a href="./invoices.html" class="active">Invoices</a>
-    <a href="#">Payments</a>
+    <a href="./disputes.html">Disputes</a>
     <a href="#">Admin</a>
   </nav>
 </header>
-
 <div class="container">
-  
-  <div style="margin-bottom: 30px;">
-    <h1 style="margin: 0; font-size: 28px;">OEM Action Center</h1>
-    <p style="color: var(--text-muted);">Current focus: Resolving high-value OEM holds and clarifying ownership.</p>
-  </div>
-
-  <div class="insights-grid">
-    <div class="insight-card">
-      <h3>Weekly Hold Trend</h3>
-      <div class="trend-container">
-        <div class="trend-bar" style="height: 40%;"><div class="trend-label">W1</div></div>
-        <div class="trend-bar" style="height: 70%;"><div class="trend-label">W2</div></div>
-        <div class="trend-bar" style="height: 55%;"><div class="trend-label">W3</div></div>
-        <div class="trend-bar" style="height: 90%;"><div class="trend-label">W4</div></div>
-        <div class="trend-bar" style="height: 30%;"><div class="trend-label">W5</div></div>
-      </div>
-    </div>
-
-    <div class="insight-card">
-      <h3>Target Resolution</h3>
-      <div style="font-size: 32px; font-weight: bold;">68%</div>
-      <div class="progress-track"><div class="progress-fill"></div></div>
-    </div>
-
-    <div class="insight-card" style="background: var(--hertz-black); color: white;">
-      <h3 style="color: var(--hertz-yellow);">High Risk Balance</h3>
-      <div style="font-size: 32px; font-weight: bold;">$184,200</div>
-    </div>
-  </div>
-
+  <h1>OEM Action Center</h1>
   <div class="invoice-table-card">
-    <div class="table-header">
-      <h2 style="font-size: 18px; margin: 0;">Pending OEM Items</h2>
-    </div>
+    <div class="table-header"><h2>Pending OEM Items</h2></div>
     <table>
-      <thead>
-        <tr>
-          <th>Invoice #</th>
-          <th>OEM Partner</th>
-          <th>Status</th>
-          <th>Critical Action Item</th>
-          <th>Owner Responsible</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Invoice #</th><th>OEM Partner</th><th>Action Item</th><th>Owner</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>OEM-4402</strong></td>
-          <td>Ford Fleet Division</td>
-          <td><span class="status-pill">Pending Info</span></td>
-          <td class="action-required">Upload POD</td>
-          <td><div class="owner-tag"><span>SJ</span> Sarah Jenkins</div></td>
-        </tr>
+        <tr><td><strong>OEM-4402</strong></td><td>Ford Fleet</td><td>Upload POD</td><td><div class="owner-tag"><span>SJ</span> Sarah</div></td></tr>
       </tbody>
     </table>
   </div>
 </div>
-
 </body>
 </html>
