@@ -20,7 +20,6 @@
       color: #333;
     }
 
-    /* Top Navigation Bar */
     header {
       background: var(--hertz-black);
       color: white;
@@ -44,15 +43,14 @@
       margin-right: 25px;
       font-size: 14px;
       font-weight: 500;
+      padding-bottom: 5px;
     }
 
     nav a.active {
       color: var(--hertz-yellow);
       border-bottom: 2px solid var(--hertz-yellow);
-      padding-bottom: 18px;
     }
 
-    /* Main Content Layout */
     .container {
       padding: 30px 40px;
       max-width: 1200px;
@@ -75,7 +73,6 @@
       cursor: pointer;
     }
 
-    /* KPI Cards Row */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -109,7 +106,6 @@
       font-size: 12px;
     }
 
-    /* Table Section */
     .card {
       background: white;
       border-radius: 8px;
@@ -142,7 +138,6 @@
       border-bottom: 1px solid var(--border-color);
     }
 
-    /* Status Tags */
     .status {
       padding: 4px 12px;
       border-radius: 4px;
@@ -173,8 +168,8 @@
 <header>
   <div class="logo">Hertz</div>
   <nav>
-    <a href="#" class="active">Dashboard</a>
-    <a href="invoices.html">Invoices</a>
+    <a href="./index.html" class="active">Dashboard</a>
+    <a href="./invoices.html">Invoices</a>
     <a href="#">Payments</a>
     <a href="#">Reports</a>
     <a href="#">Vendors</a>
@@ -241,22 +236,6 @@
           <td><span class="status approved">Approved</span></td>
           <td><button class="action-btn">View</button></td>
         </tr>
-        <tr>
-          <td>INV-100243</td>
-          <td>Fleet Maintenance Co.</td>
-          <td>Jun 9, 2024</td>
-          <td>$5,600.00</td>
-          <td><span class="status pending">Pending Approval</span></td>
-          <td><button class="action-btn" onclick="disputeInvoice()">Dispute</button></td>
-        </tr>
-        <tr>
-          <td>INV-100242</td>
-          <td>Premium Fuels LLC</td>
-          <td>Jun 8, 2024</td>
-          <td>$3,200.00</td>
-          <td><span class="status paid">Paid</span></td>
-          <td><button class="action-btn">Details</button></td>
-        </tr>
       </tbody>
     </table>
   </div>
@@ -269,10 +248,6 @@
     statusCell.innerText = "Approved";
     statusCell.className = "status approved";
     btn.innerText = "View";
-  }
-
-  function disputeInvoice() {
-    alert("Dispute created and sent to vendor & field team for review.");
   }
 </script>
 
