@@ -12,7 +12,6 @@
     nav a { color: #aaa; text-decoration: none; margin-right: 25px; font-size: 14px; font-weight: 500; padding-bottom: 5px; }
     nav a.active { color: var(--hertz-yellow); border-bottom: 2px solid var(--hertz-yellow); }
     .container { padding: 30px 40px; max-width: 1200px; margin: auto; }
-    .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
     .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
     .stat-card { background: white; padding: 20px; border-radius: 8px; border: 1px solid var(--border-color); }
     .stat-card h4 { margin: 0; font-size: 13px; color: var(--text-gray); }
@@ -24,6 +23,8 @@
     td { padding: 15px 20px; border-bottom: 1px solid var(--border-color); }
     .status { padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block; }
     .pending { background: #fff8e1; color: #f39c12; }
+    .review { background: #e3f2fd; color: #0d47a1; }
+    .done { background: #e8f5e9; color: #2ecc71; }
   </style>
 </head>
 <body>
@@ -37,7 +38,7 @@
   </nav>
 </header>
 <div class="container">
-  <div class="dashboard-header"><h1>Home</h1></div>
+  <h1>Home</h1>
   <div class="stats-grid">
     <div class="stat-card"><h4>Total Invoices</h4><div class="value">1,245</div></div>
     <div class="stat-card"><h4>Open Disputes</h4><div class="value">14</div></div>
@@ -45,8 +46,20 @@
     <div class="stat-card"><h4>Total Paid</h4><div class="value">$2.45M</div></div>
   </div>
   <div class="card">
-    <div class="card-header">Global Overview</div>
-    <div style="padding: 20px; color: #666;">Welcome to the Hertz Invoice Management portal. Use the tabs above to manage OEM actions, resolve disputes, or view financial reports.</div>
+    <div class="card-header">Recent Invoices</div>
+    <table>
+      <thead>
+        <tr><th>Invoice #</th><th>Vendor</th><th>Due Date</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>INV-100245</td><td>ABC Services LLC</td><td>Jun 12, 2024</td><td><span class="status pending">Pending</span></td></tr>
+        <tr><td>INV-100248</td><td>Global Fleet</td><td>Jun 15, 2024</td><td><span class="status review">Review in Progress</span></td></tr>
+        <tr><td>INV-100250</td><td>Penske Truck</td><td>Jun 18, 2024</td><td><span class="status done">Done</span></td></tr>
+        <tr><td>INV-100255</td><td>Ford Motor Co.</td><td>Jun 20, 2024</td><td><span class="status pending">Pending</span></td></tr>
+        <tr><td>INV-100260</td><td>Tire Pro Services</td><td>Jun 22, 2024</td><td><span class="status review">Review in Progress</span></td></tr>
+        <tr><td>INV-100265</td><td>Fuel Tech LLC</td><td>Jun 25, 2024</td><td><span class="status done">Done</span></td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 </body>
