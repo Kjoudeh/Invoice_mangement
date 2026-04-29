@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hertz - Dispute Management</title>
+  <title>Hertz - Disputes</title>
   <style>
     :root { --hertz-yellow: #ffcc00; --hertz-black: #000000; --bg-gray: #f8f9fa; --border-color: #dddddd; }
     body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--bg-gray); }
@@ -12,74 +12,33 @@
     nav a { color: #aaa; text-decoration: none; margin-right: 25px; font-size: 14px; font-weight: 600; padding-bottom: 5px; }
     nav a.active { color: var(--hertz-yellow); border-bottom: 2px solid var(--hertz-yellow); }
     .container { padding: 40px; max-width: 1300px; margin: auto; }
-    .card { background: white; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-    .card-header { padding: 20px; font-weight: bold; background: white; display: flex; justify-content: space-between; align-items: center; }
+    .card { background: white; border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; }
     table { width: 100%; border-collapse: collapse; }
-    th { text-align: left; background: #fafafa; padding: 15px 20px; font-size: 12px; color: #666; border-bottom: 2px solid #eee; }
-    td { padding: 15px 20px; border-bottom: 1px solid #eee; font-size: 14px; vertical-align: top; }
+    th { text-align: left; background: #fafafa; padding: 15px 20px; font-size: 12px; color: #666; }
+    td { padding: 15px 20px; border-bottom: 1px solid #eee; font-size: 14px; }
     .dispute-by { font-weight: bold; padding: 3px 8px; border-radius: 4px; font-size: 11px; }
-    .vendor-flag { background: #e3f2fd; color: #0d47a1; } /* Blue for Vendor */
-    .hertz-flag { background: #fff8e1; color: #ff8f00; } /* Yellow/Gold for Hertz */
-    .comment-box { color: #555; font-style: italic; font-size: 13px; max-width: 300px; }
-    .btn-action { background: var(--hertz-yellow); border: none; padding: 6px 12px; border-radius: 4px; font-weight: bold; cursor: pointer; }
-    .compliance-score { font-size: 12px; font-weight: bold; color: #2ecc71; }
+    .vendor-flag { background: #e3f2fd; color: #0d47a1; }
+    .hertz-flag { background: #fff8e1; color: #ff8f00; }
   </style>
 </head>
 <body>
 <header>
   <div class="logo">Hertz</div>
   <nav>
-    <a href="./index.html">Dashboard</a>
+    <a href="./index.html">Home</a>
     <a href="./invoices.html">Invoices</a>
     <a href="./disputes.html" class="active">Disputes</a>
-    <a href="#">Compliance</a>
+    <a href="./reports.html">Reports</a>
   </nav>
 </header>
 <div class="container">
   <h1>Dispute Resolution Center</h1>
-  <p style="color: #666; margin-bottom: 30px;">Reviewing vendor-initiated and internal compliance disputes.</p>
-
   <div class="card">
-    <div class="card-header">
-      <span>Open Disputes (4)</span>
-      <span class="compliance-score">Vendor Compliance Rating: 94%</span>
-    </div>
     <table>
-      <thead>
-        <tr>
-          <th>Invoice #</th>
-          <th>Vendor Name</th>
-          <th>Disputed By</th>
-          <th>Reason / Comment</th>
-          <th>Dispute Amount</th>
-          <th>Action</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Invoice #</th><th>Vendor</th><th>Disputed By</th><th>Amount</th></tr></thead>
       <tbody>
-        <tr>
-          <td><strong>INV-9001</strong></td>
-          <td>Ford Motor Co.</td>
-          <td><span class="dispute-by vendor-flag">VENDOR</span></td>
-          <td class="comment-box">"Sales tax was applied to tax-exempt fleet purchase. Requesting credit."</td>
-          <td>$1,240.00</td>
-          <td><button class="btn-action">Review</button></td>
-        </tr>
-        <tr>
-          <td><strong>INV-9005</strong></td>
-          <td>Penske Truck</td>
-          <td><span class="dispute-by hertz-flag">HERTZ</span></td>
-          <td class="comment-box">"Surcharge for cleaning fee exceeds Master Service Agreement limits."</td>
-          <td>$450.00</td>
-          <td><button class="btn-action">Resolve</button></td>
-        </tr>
-        <tr>
-          <td><strong>INV-9112</strong></td>
-          <td>Tire Pro Services</td>
-          <td><span class="dispute-by vendor-flag">VENDOR</span></td>
-          <td class="comment-box">"Labor hours on PO do not match actual technician logs for unit #441."</td>
-          <td>$185.50</td>
-          <td><button class="btn-action">Review</button></td>
-        </tr>
+        <tr><td><strong>INV-9001</strong></td><td>Ford Motor Co.</td><td><span class="dispute-by vendor-flag">VENDOR</span></td><td>$1,240.00</td></tr>
+        <tr><td><strong>INV-9005</strong></td><td>Penske Truck</td><td><span class="dispute-by hertz-flag">HERTZ</span></td><td>$450.00</td></tr>
       </tbody>
     </table>
   </div>
