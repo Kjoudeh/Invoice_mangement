@@ -21,7 +21,6 @@
       color: #333;
     }
 
-    /* Top Nav */
     header {
       background: var(--hertz-black);
       color: white;
@@ -41,11 +40,10 @@
       font-weight: 600;
     }
 
-    nav a.active { color: var(--hertz-yellow); }
+    nav a.active { color: var(--hertz-yellow); border-bottom: 2px solid var(--hertz-yellow); padding-bottom: 5px; }
 
     .container { padding: 40px; max-width: 1300px; margin: auto; }
 
-    /* Insights Section */
     .insights-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -62,7 +60,6 @@
 
     .insight-card h3 { margin: 0 0 15px 0; font-size: 14px; color: var(--text-muted); text-transform: uppercase; }
 
-    /* CSS Graph Components */
     .trend-container { display: flex; align-items: flex-end; height: 100px; gap: 10px; padding-top: 10px; }
     .trend-bar { background: var(--hertz-yellow); width: 100%; border-radius: 4px 4px 0 0; position: relative; }
     .trend-bar:hover { background: var(--hertz-black); }
@@ -71,7 +68,6 @@
     .progress-track { background: #eee; height: 12px; border-radius: 10px; margin: 20px 0 10px 0; overflow: hidden; }
     .progress-fill { background: #2ecc71; height: 100%; width: 68%; }
 
-    /* OEM Invoice Table */
     .invoice-table-card {
       background: white;
       border-radius: 12px;
@@ -137,8 +133,8 @@
 <header>
   <div class="logo">Hertz</div>
   <nav>
-    <a href="index.html">Dashboard</a>
-    <a href="invoices.html" class="active">Invoices</a>
+    <a href="./index.html">Dashboard</a>
+    <a href="./invoices.html" class="active">Invoices</a>
     <a href="#">Payments</a>
     <a href="#">Admin</a>
   </nav>
@@ -161,29 +157,23 @@
         <div class="trend-bar" style="height: 90%;"><div class="trend-label">W4</div></div>
         <div class="trend-bar" style="height: 30%;"><div class="trend-label">W5</div></div>
       </div>
-      <p style="font-size: 12px; color: #888; margin-top: 15px;">Volume decreased by 12% this week.</p>
     </div>
 
     <div class="insight-card">
-      <h3>Target Resolution (Q2)</h3>
+      <h3>Target Resolution</h3>
       <div style="font-size: 32px; font-weight: bold;">68%</div>
-      <div class="progress-track">
-        <div class="progress-fill"></div>
-      </div>
-      <p style="font-size: 12px; color: #888;">Goal: 85% by June 30.</p>
+      <div class="progress-track"><div class="progress-fill"></div></div>
     </div>
 
     <div class="insight-card" style="background: var(--hertz-black); color: white;">
       <h3 style="color: var(--hertz-yellow);">High Risk Balance</h3>
       <div style="font-size: 32px; font-weight: bold;">$184,200</div>
-      <p style="font-size: 12px; opacity: 0.7; margin-top: 10px;">Invoices aged > 45 days requiring immediate Field Team intervention.</p>
     </div>
   </div>
 
   <div class="invoice-table-card">
     <div class="table-header">
       <h2 style="font-size: 18px; margin: 0;">Pending OEM Items</h2>
-      <button style="background: var(--hertz-yellow); border: none; padding: 8px 15px; border-radius: 4px; font-weight: bold; cursor: pointer;">Export to CSV</button>
     </div>
     <table>
       <thead>
@@ -200,28 +190,7 @@
           <td><strong>OEM-4402</strong></td>
           <td>Ford Fleet Division</td>
           <td><span class="status-pill">Pending Info</span></td>
-          <td class="action-required">Upload Proof of Delivery (POD)</td>
-          <td><div class="owner-tag"><span>SJ</span> Sarah Jenkins</div></td>
-        </tr>
-        <tr>
-          <td><strong>OEM-5591</strong></td>
-          <td>General Motors</td>
-          <td><span class="status-pill">In Dispute</span></td>
-          <td class="action-required">Reconcile $400 surcharge</td>
-          <td><div class="owner-tag"><span>MR</span> Mike Richards</div></td>
-        </tr>
-        <tr>
-          <td><strong>OEM-1102</strong></td>
-          <td>Toyota Financial</td>
-          <td><span class="status-pill">Review</span></td>
-          <td class="action-required">Assign cost center for maintenance</td>
-          <td><div class="owner-tag"><span>FT</span> Field Team (MIA)</div></td>
-        </tr>
-        <tr>
-          <td><strong>OEM-9932</strong></td>
-          <td>Stellantis Group</td>
-          <td><span class="status-pill">Pending Info</span></td>
-          <td class="action-required">Confirm VIN for unit #2204</td>
+          <td class="action-required">Upload POD</td>
           <td><div class="owner-tag"><span>SJ</span> Sarah Jenkins</div></td>
         </tr>
       </tbody>
